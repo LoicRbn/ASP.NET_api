@@ -33,7 +33,7 @@ namespace ASP.NET_api.Models
             using (MySqlConnection connection = GetConnection())
             {
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from TEST", connection);
+                MySqlCommand cmd = new MySqlCommand("select * from conso", connection);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
