@@ -14,10 +14,12 @@ namespace ASP.NET_api.Controllers
         {
             Context = context;
         }
-        [HttpGet(Name = "/getId")]
-        public List<int> getId()
+
+        [HttpGet(Name = "/getConso")]
+        public List<Conso> getConso()
         {
-            return Context.getId();
+            return Context.getConso();
         }
+
     }
 }

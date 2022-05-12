@@ -27,9 +27,10 @@ namespace ASP.NET_api.Models
             Console.WriteLine(_connectionString);
             return new MySqlConnection(_connectionString);
         }
-        public List<int> getId()
+
+        public List<Conso> getConso()
         {
-            List<int> id = new List<int>();
+            List<Conso> conso = new List<Conso>();
             using (MySqlConnection connection = GetConnection())
             {
                 connection.Open();
@@ -38,11 +39,15 @@ namespace ASP.NET_api.Models
                 {
                     while (reader.Read())
                     {
-                        id.Add(reader.GetInt32("id"));
+                        conso.Add(new Conso()
+                        {
+                            Id = reader.GetInt32("id"),
+                            Nom = reader.GetString("nom")
+                        });
                     }
                 }
             }
-            return id;
+            return conso;
         }
     }
 }
