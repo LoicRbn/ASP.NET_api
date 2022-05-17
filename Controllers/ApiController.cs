@@ -3,8 +3,6 @@ using ASP.NET_api.Models;
 
 namespace ASP.NET_api.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
 
     public class ApiController : Controller
     {
@@ -15,11 +13,14 @@ namespace ASP.NET_api.Controllers
             Context = context;
         }
 
-        [HttpGet(Name = "/getConso")]
+        [Route("/getConso")]
+        [HttpGet]
         public List<Conso> getConso()
         {
             return Context.getConso();
         }
-
+        /*
+        [HttpPost(Name = "/insertConso")]
+        public */
     }
 }

@@ -49,5 +49,28 @@ namespace ASP.NET_api.Models
             }
             return conso;
         }
+
+        public int insertConso(string nom)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "INSERT INTO Conso VALUES(0, @nom)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nom", nom);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int insertConso(int idconso)
+        {
+            using(MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "INSERT INTO Conso VALUES(0, @nom)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@iditem", idItem);
+                return cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
