@@ -34,7 +34,7 @@ namespace ASP.NET_api.Models
             using (MySqlConnection connection = GetConnection())
             {
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from conso", connection);
+                MySqlCommand cmd = new MySqlCommand("select * from conso order by id", connection);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -136,7 +136,7 @@ namespace ASP.NET_api.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                string query = "UPDATE contenir set etat = @etat WHERE id = @idcommande and id_1 = @idconso)";
+                string query = "UPDATE contenir SET etat = @etat WHERE id = @idcommande and id_1 = @idconso";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@idcommande", idcommande);
                 cmd.Parameters.AddWithValue("@idconso", idconso);
@@ -145,7 +145,5 @@ namespace ASP.NET_api.Models
             }
         }
 
-
-        /* public List<Commande>*/
     }
 }

@@ -33,12 +33,12 @@ namespace ASP.NET_api.Controllers
         {
             return Context.getCommande();
         }
-        /*
+        
         [Route("/insertConso")]
         [HttpPost]
-        public int insertConso()
+        public int insertConso(string nom)
         {
-            return Context.insertConso();
+            return Context.insertConso(nom);
         }
 
         [Route("/initializeNewCommande")]
@@ -47,6 +47,21 @@ namespace ASP.NET_api.Controllers
         {
             return Context.initializeNewCommande();
         }
-        */
+
+        [Route("/createCommande")]
+        [HttpPost]
+        public int createCommande(int idcommande, int idconso, string etat)
+        {
+            return Context.createCommande(idcommande, idconso, etat);
+        }
+
+        [Route("/updateStateCommande")]
+        [HttpPut]
+        public int updateCommandState(int idcommande, int idconso, string etat)
+        {
+            return Context.updateCommandState(idcommande, idconso, etat);
+        }
+
+
     }
 }
