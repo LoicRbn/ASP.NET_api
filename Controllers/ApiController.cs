@@ -19,8 +19,34 @@ namespace ASP.NET_api.Controllers
         {
             return Context.getConso();
         }
+
+        [Route("/getContenir")]
+        [HttpGet]
+        public List<Contenir> getContenir()
+        {
+            return Context.getContenir();
+        }
+
+        [Route("/getCommande")]
+        [HttpGet]
+        public List<Commande> getCommande()
+        {
+            return Context.getCommande();
+        }
         /*
-        [HttpPost(Name = "/insertConso")]
-        public */
+        [Route("/insertConso")]
+        [HttpPost]
+        public int insertConso()
+        {
+            return Context.insertConso();
+        }
+
+        [Route("/initializeNewCommande")]
+        [HttpPost]
+        public int initializeNewCommande()
+        {
+            return Context.initializeNewCommande();
+        }
+        */
     }
 }
